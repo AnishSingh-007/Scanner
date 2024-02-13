@@ -130,13 +130,13 @@
 
   <div class="container">
     <a-tab-group no-scroll-controls no-tab-cycling>
-        <!-- <a-tab slot="tab" role="heading" id="cameraTab">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-webcam" viewBox="0 0 16 16">
+        <a-tab slot="tab" role="heading" id="cameraTab">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-webcam" viewBox="0 0 16 16">
             <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H9.269c.144.162.33.324.531.475a6.785 6.785 0 0 0 .907.57l.014.006.003.002A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.224-.947l.003-.002.014-.007a4.473 4.473 0 0 0 .268-.148 6.75 6.75 0 0 0 .639-.421c.2-.15.387-.313.531-.475H2a2 2 0 0 1-2-2V6Zm2-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2Z"/>
             <path d="M8 6.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm7 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
-          </svg>
-          <span>Use webcam</span>
-        </a-tab> -->
+          </svg> -->
+          <span>Scan</span>
+        </a-tab>
 
       <a-tab-panel slot="panel" id="cameraPanel">
         <div class="scan-frame-container">
@@ -215,7 +215,7 @@
         </dialog>
       </a-tab-panel>
 
-      <a-tab slot="tab" role="heading" id="fileTab" class="visually-hidden">
+      <a-tab slot="tab" role="heading" id="fileTab" >
         <!-- <svg width="18" height="18" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-850.000000, -2681.000000)">
@@ -230,8 +230,8 @@
               </g>
             </g>
           </g>
-        </svg>
-        <span>Use image</span> -->
+        </svg> -->
+        <span>Image</span>
       </a-tab>
 
       <a-tab-panel slot="panel" id="filePanel">
@@ -239,7 +239,7 @@
         <files-dropzone id="dropzone" class="dropzone">
           <span class="dropzone-instructions">
 
-            <svg width="50px" height="50px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- <svg width="50px" height="50px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-850.000000, -2681.000000)">
                   <g transform="translate(100.000000, 2626.000000)">
@@ -253,7 +253,7 @@
                   </g>
                 </g>
               </g>
-            </svg>
+            </svg> -->
             Take a Photo of Barcode
             <!-- Click or drop an image to scan -->
           </span>
@@ -263,15 +263,15 @@
         <dialog id="fileResults" class="results">
           <div class="results__actions">
 
-            <custom-clipboard-copy from="#fileResults .results__item"></custom-clipboard-copy>
-            <web-share>
+            <!-- <custom-clipboard-copy from="#fileResults .results__item"></custom-clipboard-copy> -->
+            <!-- <web-share>
               <button slot="button" type="button" title="Share">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
                   <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
                 </svg>
                 Share
               </button>
-            </web-share>
+            </web-share> -->
           
           </div>
         </dialog>
@@ -279,16 +279,18 @@
     
     </a-tab-group>
   </div>
+  
 
   <p class="supported-formats" id="supportedFormats"></p>
 
   <footer>
     <p>
-      Licensed under <a href="https://georapbox.mit-license.org/@2022" target="_blank" rel="noopener">The MIT License (MIT)</a>
+      Licensed under <a href="https://ssccglpinnacle.com" target="_blank" rel="noopener">SSC CGL PINNACLE</a>
     </p>
   </footer>
 
   <script src="./js/register-service-worker.js" type="module"></script>
+  <!-- <script src="./js/PiracyChecker.js " type="module"></script> -->
   <script src="./js/index.js" type="module"></script>
 </body>
 </html>
