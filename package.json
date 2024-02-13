@@ -1,38 +1,52 @@
 {
-  "name": "barcode-scanner",
+  "homepage": "https://anishsingh007-github.github.io/Scanner",
+  "name": "Scanner",
   "version": "1.0.0",
   "description": "A Progressive Web Application (PWA) that scans barcodes of various formats, using the Barcode Detection API.",
   "source": "src/index.html",
   "scripts": {
-    "start":"parcel",
+    "start": "parcel",
+    "deploy": "gh-pages -d docs",
     "lint": "eslint . --ext .js",
     "clean": "rimraf docs .parcel-cache",
     "generateSW": "workbox generateSW",
-    
     "build:parcel": "parcel build --dist-dir=docs --public-url=./",
     "build": "npm-run-all clean build:parcel",
     "postbuild": "npm run generateSW"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/georapbox/barcode-scanner.git"
+    "url": "git+https://github.com/AnishSingh007-Github/Scanner.git"
   },
   "keywords": [
-    "code_128"
+    "aztec",
+    "code_128",
+    "code_39",
+    "code_93",
+    "codabar",
+    "data_matrix",
+    "ean_13",
+    "ean_8",
+    "itf",
+    "pdf417",
+    "qr_code",
+    "upc_a",
+    "upc_e",
+    "scanner"
   ],
   "author": {
-    "name": "George Raptis",
-    "email": "georapbox@gmail.com"
+    "name": "Anish Singh",
+    "email": "anishsinghanish007@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/georapbox/barcode-scanner/issues"
+    "url": "https://github.com/AnishSingh007-Github/Scanner.git"
   },
-  "homepage": "https://github.com/georapbox/barcode-scanner#readme",
   "devDependencies": {
     "@parcel/packager-raw-url": "~2.11.0",
     "@parcel/transformer-webmanifest": "~2.11.0",
     "eslint": "~8.56.0",
+    "gh-pages": "~6.1.1",
     "npm-run-all": "~4.1.5",
     "parcel": "~2.11.0",
     "process": "~0.11.10",
