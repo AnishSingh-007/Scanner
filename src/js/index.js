@@ -417,6 +417,40 @@ import PiracyBarcode from './PiracyChecker.js';
       scanFrameEl.hidden = true;
       beep(200, 860, 0.03, 'square');
       vibrate();
+      let searchBarcode=barcode.rawValue;
+
+          function searchBarCode (){
+            console.log("function is running")
+            if (searchBarcode.trim() === "") {
+
+              alert("Please enter a barcode before submitting.");
+              return;
+            }
+        
+            let found = false;
+            let orderNum = null;
+            BookData.forEach((item) => {
+              if (item.barcodeData) {
+                console.log("ghus gaya hai")
+                item.barcodeData.forEach((barcode) => {
+                  if (barcode.scannedData && barcode.scannedData.includes(searchBarcode)) {
+                    found = true;
+                    orderNum = barcode.OrderNum;
+                    return;
+                  }
+                });
+              }
+            });
+        
+            foundBarcode = found
+              ? alert("verified")
+              : alert("This book does not belong to Pinnacle so this is a duplicate book.");
+        
+            submittedBarcode = searchBarcode;
+            searchBarcode = "";
+          }
+
+          searchBarCode();
       return;
     } catch (err) {
       // Fail silently...
@@ -444,7 +478,9 @@ import PiracyBarcode from './PiracyChecker.js';
           emptyResults(fileResultsEl);
           createResult(barcode.rawValue, fileResultsEl);
           // PiracyBarcode(barcode.rawValue);
+
           let searchBarcode=barcode.rawValue;
+
           function searchBarCode (){
             console.log("function is running")
             if (searchBarcode.trim() === "") {
