@@ -38,6 +38,8 @@ import PiracyBarcode from './PiracyChecker.js';
   let shouldRepeatScan = true;
   let rafId;
 
+  let searchBarcode;
+
   let BookData = [];
   let dataa = [];
             function fetchData() {
@@ -417,40 +419,8 @@ import PiracyBarcode from './PiracyChecker.js';
       scanFrameEl.hidden = true;
       beep(200, 860, 0.03, 'square');
       vibrate();
-      let searchBarcode=barcode.rawValue;
 
-          function searchBarCode (){
-            console.log("function is running")
-            if (searchBarcode.trim() === "") {
-
-              alert("Please enter a barcode before submitting.");
-              return;
-            }
-        
-            let found = false;
-            let orderNum = null;
-            BookData.forEach((item) => {
-              if (item.barcodeData) {
-                console.log("ghus gaya hai")
-                item.barcodeData.forEach((barcode) => {
-                  if (barcode.scannedData && barcode.scannedData.includes(searchBarcode)) {
-                    found = true;
-                    orderNum = barcode.OrderNum;
-                    return;
-                  }
-                });
-              }
-            });
-        
-            foundBarcode = found
-              ? alert("verified")
-              : alert("This book does not belong to Pinnacle so this is a duplicate book.");
-        
-            submittedBarcode = searchBarcode;
-            searchBarcode = "";
-          }
-
-          searchBarCode();
+      searchBarcode = barcode.rawValue;
       return;
     } catch (err) {
       // Fail silently...
@@ -587,6 +557,41 @@ import PiracyBarcode from './PiracyChecker.js';
     emptyResults(cameraResultsEl);
     cameraResultsEl.close();
     scan();
+
+    // let searchBarcode=barcode.rawValue;
+    
+    function searchBarCode (){
+      console.log("function is running")
+      if (searchBarcode.trim() === "") {
+
+        alert("Please enter a barcode before submitting.");
+        return;
+      }
+  
+      let found = false;
+      let orderNum = null;
+      BookData.forEach((item) => {
+        if (item.barcodeData) {
+          console.log("ghus gaya hai")
+          item.barcodeData.forEach((barcode) => {
+            if (barcode.scannedData && barcode.scannedData.includes(searchBarcode)) {
+              found = true;
+              orderNum = barcode.OrderNum;
+              return;
+            }
+          });
+        }
+      });
+  
+      foundBarcode = found
+        ? alert("verified")
+        : alert("This book does not belong to Pinnacle so this is a duplicate book.");
+  
+      submittedBarcode = searchBarcode;
+      searchBarcode = "";
+    }
+
+    searchBarCode();
   });
 
   tabGroupEl.addEventListener('a-tab-show', debounce(evt => {
@@ -604,6 +609,39 @@ import PiracyBarcode from './PiracyChecker.js';
         && !cameraResultsEl.querySelector('.results__item')
       ) {
         scan();
+
+        function searchBarCode (){
+          console.log("function is running")
+          if (searchBarcode.trim() === "") {
+    
+            alert("Please enter a barcode before submitting.");
+            return;
+          }
+      
+          let found = false;
+          let orderNum = null;
+          BookData.forEach((item) => {
+            if (item.barcodeData) {
+              console.log("ghus gaya hai")
+              item.barcodeData.forEach((barcode) => {
+                if (barcode.scannedData && barcode.scannedData.includes(searchBarcode)) {
+                  found = true;
+                  orderNum = barcode.OrderNum;
+                  return;
+                }
+              });
+            }
+          });
+      
+          foundBarcode = found
+            ? alert("verified")
+            : alert("This book does not belong to Pinnacle so this is a duplicate book.");
+      
+          submittedBarcode = searchBarcode;
+          searchBarcode = "";
+        }
+    
+        searchBarCode();
       }
 
       if (capturePhotoEl != null && typeof capturePhotoEl.startVideoStream === 'function') {
