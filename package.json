@@ -23,16 +23,10 @@
     "code_128",
     "code_39",
     "code_93",
-    "codabar",
-    "data_matrix",
     "ean_13",
     "ean_8",
-    "itf",
-    "pdf417",
-    "qr_code",
     "upc_a",
-    "upc_e",
-    "scanner"
+    "upc_e"
   ],
   "author": {
     "name": "Anish Singh",

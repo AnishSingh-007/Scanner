@@ -42,22 +42,23 @@ import PiracyBarcode from './PiracyChecker.js';
 
   let BookData = [];
   let dataa = [];
-            function fetchData() {
-              fetch("https://nodei.ssccglpinnacle.com/getship")
-                .then((response) => response.json())
-                .then((responseData) => {
-                  BookData.push(...responseData.reverse());
-                  console.log(data);
-                });
-          
-              fetch("https://nodei.ssccglpinnacle.com/getApproveDPO")
-                .then((response) => response.json())
-                .then((responseData) => {
-                  dataa.push(...responseData.reverse());
-                  console.log(dataa)
-                });
-            }
-              fetchData();
+function fetchData() {
+  fetch("https://nodei.ssccglpinnacle.com/getship")
+    .then((response) => response.json())
+    .then((responseData) => {
+      BookData.push(...responseData.reverse());
+      console.log(data);
+    });
+
+  fetch("https://nodei.ssccglpinnacle.com/getApproveDPO")
+    .then((response) => response.json())
+    .then((responseData) => {
+      dataa.push(...responseData.reverse());
+      console.log(dataa)
+    });
+}
+  fetchData();
+
   if (!('BarcodeDetector' in window)) {
     try {
       await import('barcode-detector');
@@ -390,7 +391,12 @@ import PiracyBarcode from './PiracyChecker.js';
     return new Promise((resolve, reject) => {
       barcodeDetector.detect(source).then(results => {
         if (Array.isArray(results) && results.length > 0) {
-          resolve(results[0]);
+          console.log("Results: " , results);
+          var desiredFormats = ['ean_13', 'code_128', 'code_39', 'code_93', 'ean_8', 'upc_a', 'upc_e'];
+          var barcodeResult = results.find(function(obj) {
+            return desiredFormats.includes(obj.format);
+          });
+          resolve(barcodeResult);
         } else {
           reject({
             message: 'Could not detect barcode from provided source.'
@@ -401,6 +407,32 @@ import PiracyBarcode from './PiracyChecker.js';
       });
     });
   }
+
+  // function detectBarcode(source) {
+  //   return new Promise((resolve, reject) => {
+  //     barcodeDetector.detect(source).then(results => {
+  //       if (Array.isArray(results) && results.length > 0) {
+  //         for (let i = 0; i < results.length; i++) {
+  //           if (results[i].format === 'ean_13') {
+  //             console.log("Results: ", results);
+  //             alert(results[i].format);
+  //             resolve(results[i]);
+  //             return; // Exit the loop after resolving the barcode
+  //           }
+  //         }
+  //         // If no barcode with format ean_13 is found
+  //         reject({ message: 'No ean_13 barcode detected.' });
+  //       } else {
+  //         // If no results or empty results array
+  //         reject({ message: 'Could not detect barcode from provided source.' });
+  //       }
+  //     }).catch(err => {
+  //       // If an error occurs during barcode detection
+  //       reject(err);
+  //     });
+  //   });
+  // }
+  
 
   async function scan() {
     log('Scanning...');
