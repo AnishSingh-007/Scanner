@@ -225,7 +225,7 @@ import PiracyBarcode from './PiracyChecker.js';
     }
 
     const errorMessage = error.name === 'NotAllowedError'
-      ? 'Permission to use webcam was denied or video Autoplay is disabled. Reload the page to give appropriate permissions to webcam.'
+      ? 'Permission to use Camera was denied. Reload the page to give permissions to Camera.'
       : error.message;
 
     cameraPanel.innerHTML = /* html */`<div class="alert alert-danger" role="alert" style="margin: 0;">${errorMessage}</div>`;
