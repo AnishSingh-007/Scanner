@@ -191,9 +191,9 @@ import PiracyBarcode from './PiracyChecker.js';
       const minZoom = trackCapabilities?.zoom?.min || 0;
       const maxZoom = trackCapabilities?.zoom?.max || 10;
       
-      capturePhotoEl.zoom = 3
-      trackSettings.zoom = 3
-      let currentZoom = trackSettings?.zoom || 3;
+      capturePhotoEl.zoom = 2
+      trackSettings.zoom = 2
+      let currentZoom = trackSettings?.zoom || 1;
       alert(trackSettings?.zoom )
 
       zoomControls.hidden = false;
