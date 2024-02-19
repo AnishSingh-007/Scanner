@@ -194,7 +194,7 @@ import PiracyBarcode from './PiracyChecker.js';
       capturePhotoEl.zoom = 3
       trackSettings.zoom = 3
       let currentZoom = trackSettings?.zoom || 3;
-      // alert(trackSettings?.zoom )
+      alert(trackSettings?.zoom )
 
       zoomControls.hidden = false;
       zoomLevelEl.textContent = currentZoom;
